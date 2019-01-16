@@ -1,0 +1,18 @@
+body{
+	background-color: paleturquoise;
+	color: purple;
+	font-family: 'Source Sans Pro', sans-serif;
+
+}
+
+.box{
+	width: 500px;
+	border: 1px solid purple;
+}
+
+img{
+	width: 200px;
+	display: block;
+	margin: auto;
+	border: 1px solid purple;
+}
