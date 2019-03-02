@@ -1,4 +1,4 @@
-var game = new Phaser.Game(800, 600, Phaser.AUTO,'', {preload:preload, create:create, update:update});
+var game = new Phaser.Game(800, 600, Phaser.AUTO,' ', {preload:preload, create:create, update:update});
 
 var score = 0;
 var life = 3;
@@ -12,7 +12,7 @@ function preload(){
 }
 
 function create(){
-	game.physics.starstSystem(Phaser.Physics.ARCADE);
+	game.physics.startSystem(Phaser.Physics.ARCADE);
 	
 	// Create the sky
 	game.add.sprite(0, 0, 'sky');
