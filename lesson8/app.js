@@ -79,4 +79,26 @@ function update(){
 	game.physics.arcade.collide(player, platforms);
 	game.physics.arcade.collide(stars, platforms);
 	game.physics.arcade.collide(baddie, platforms);
+
+	//set the player speed to 0 when there is nothing
+	player.body.velocity.x = 0;
+
+	//checking the keyboard input
+	// do something when the arrow key is pressed
+
+	if (cursors.left.isDown){
+		player.body.velocity.x = -150;
+		player.animations.play('left');
+	} else if (cursor.right.isDown){
+		player.body.velocity.x = 150;
+		player.animations.play('right');		 
+	} else {
+		player.animations.stop();
+		player.frame = 4;
+	}
+
+	//check if player is eligible to jump or not
+	if (cursors.up.isDown && player.body.touching.down){
+		player.body.velocity.y = -300;
+	}
 }
