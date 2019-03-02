@@ -100,5 +100,4 @@ function create(){
 	// //check if player is eligible to jump or not
 	// if (cursors.up.isDown && player.body.touching.down){
 	// 	player.body.velocity.y = -300;
-	// }
-}
+	//}
