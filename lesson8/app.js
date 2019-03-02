@@ -6,13 +6,13 @@ var life = 3;
 function preload(){
   game.load.image('sky', 'assets/sky.png');
   game.load.image('ground', 'assets/platform.png');
-  game.load.image('star', 'assets/star.png');
+  game.load.image('starss', 'assets/stars.png');
   game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
   game.load.spritesheet('baddie', 'assets/baddie.png', 32, 32);
 }
 
 function create(){
-	game.physics.startSystem(Phaser.Physics.ARCADE);
+	game.physics.starstSystem(Phaser.Physics.ARCADE);
 	
 	// Create the sky
 	game.add.sprite(0, 0, 'sky');
@@ -60,14 +60,14 @@ function create(){
 	baddie.body.gravity.y = 300;
 	baddie.body.collideWorldBounds = true;
 
-	//create the stars
-	star = game.add.physicsGroup();
-	star.enableBody = true;
-	// we will create 12 stars evenly spaced
+	//create the starss
+	stars = game.add.physicsGroup();
+	stars.enableBody = true;
+	// we will create 12 starss evenly spaced
 	for (var i = 0; i < 12; i++){
-		var star = star.create(i * 70, 0, 'star');
-		star.body.gravity.y = 200;
-		star.body.bounce.y = 0.7 + Math.random() * 0.2;
+		var stars = stars.create(i * 70, 0, 'stars');
+		stars.body.gravity.y = 200;
+		stars.body.bounce.y = 0.7 + Math.random() * 0.2;
 	}
 
 	// add cursor control (with arrow)
@@ -77,7 +77,7 @@ function create(){
 
 //function update(){
 	// game.physics.arcade.collide(player, platforms);
-	// game.physics.arcade.collide(star, platforms);
+	// game.physics.arcade.collide(stars, platforms);
 	// game.physics.arcade.collide(baddie, platforms);
 
 	// //set the player speed to 0 when there is nothing
