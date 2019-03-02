@@ -77,7 +77,7 @@ function create(){
 
 //function update(){
 	// game.physics.arcade.collide(player, platforms);
-	// game.physics.arcade.collide(stars, platforms);
+	// game.physics.arcade.collide(star, platforms);
 	// game.physics.arcade.collide(baddie, platforms);
 
 	// //set the player speed to 0 when there is nothing
