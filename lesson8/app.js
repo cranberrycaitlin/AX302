@@ -51,14 +51,14 @@ function create(){
 	game.physics.arcade.enable(player);
 	player.body.bounce.y = 0.2;
 	player.body.gravity.y = 300;
-	player.body.collideWorldBounds = false;
+	player.body.collideWorldBounds = true;
 
 	baddie = game.add.sprite(700,60,'baddie');
 	baddie.animations.add('left',[0,1],10,true);
 	baddie.animations.add('right',[2,3],10,true);
 	baddie.body.bounce.y = 0.2;
 	baddie.body.gravity.y = 300;
-	baddie.body.collideWorldBounds = 
+	baddie.body.collideWorldBounds = true;
 
 	//create the stars
 	stars = game.add.physicsGroup();
