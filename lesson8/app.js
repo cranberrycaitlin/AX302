@@ -6,7 +6,7 @@ var life = 3;
 function preload(){
   game.load.image('sky', 'assets/sky.png');
   game.load.image('ground', 'assets/platform.png');
-  game.load.image('stars', 'assets/stars.png');
+  game.load.image('star', 'assets/star.png');
   game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
   game.load.spritesheet('baddie', 'assets/baddie.png', 32, 32);
 }
@@ -60,12 +60,12 @@ function create(){
 	baddie.body.gravity.y = 300;
 	baddie.body.collideWorldBounds = true;
 
-	//create the starss
-	stars = game.add.physicsGroup();
-	stars.enableBody = true;
-	// we will create 12 starss evenly spaced
+	//create the star
+	star = game.add.physicsGroup();
+	star.enableBody = true;
+	// we will create 12 stars evenly spaced
 	for (var i = 0; i < 12; i++){
-		var stars = stars.create(i * 70, 0, 'stars');
+		var stars = star.create(i * 70, 0, 'stars');
 		stars.body.gravity.y = 200;
 		stars.body.bounce.y = 0.7 + Math.random() * 0.2;
 	}
