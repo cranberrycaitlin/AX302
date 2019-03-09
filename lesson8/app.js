@@ -63,8 +63,8 @@ function create(){
 	baddie.body.collideWorldBounds = true;
 
 	//create the star
-	starts = game.add.physicsGroup();
-	starts.enableBody = true;
+	stars = game.add.physicsGroup();
+	stars.enableBody = true;
 	// we will create 12 stars evenly spaced
 	for (var i = 0; i < 12; i++){
 		var star = stars.create(i * 70, 0, 'star');
