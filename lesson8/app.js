@@ -56,6 +56,8 @@ function create(){
 	baddie = game.add.sprite(700,60,'baddie');
 	baddie.animations.add('left',[0,1],10,true);
 	baddie.animations.add('right',[2,3],10,true);
+	game.physics.arcade.enable(baddie);
+
 	baddie.body.bounce.y = 0.2;
 	baddie.body.gravity.y = 500;
 	baddie.body.collideWorldBounds = true;
