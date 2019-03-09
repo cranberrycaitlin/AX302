@@ -143,7 +143,7 @@ function moveBaddie(){
 
 function endGame(){
 	player.kill();
-	scorelabel.text = "GAME OVER!! you scored" + score;
+	scorelabel.text = "GAME OVER!! you scored " + score;
 	scoretext.visible = false;
 	lifelabel.visible = false;
 	lifetext.visible = false;
