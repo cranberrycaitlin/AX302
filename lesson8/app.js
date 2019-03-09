@@ -57,17 +57,17 @@ function create(){
 	baddie.animations.add('left',[0,1],10,true);
 	baddie.animations.add('right',[2,3],10,true);
 	baddie.body.bounce.y = 0.2;
-	baddie.body.gravity.y = 300;
+	baddie.body.gravity.y = 500;
 	baddie.body.collideWorldBounds = true;
 
 	//create the star
-	star = game.add.physicsGroup();
-	star.enableBody = true;
+	starts = game.add.physicsGroup();
+	starts.enableBody = true;
 	// we will create 12 stars evenly spaced
 	for (var i = 0; i < 12; i++){
-		var stars = star.create(i * 70, 0, 'stars');
-		stars.body.gravity.y = 200;
-		stars.body.bounce.y = 0.7 + Math.random() * 0.2;
+		var star = stars.create(i * 70, 0, 'star');
+		star.body.gravity.y = 200;
+		star.body.bounce.y = 0.7 + Math.random() * 0.2;
 	}
 
 	// add cursor control (with arrow)
@@ -101,4 +101,56 @@ function update(){
 	if (cursors.up.isDown && player.body.touching.down){
 		player.body.velocity.y = -300;
 	}
+
+	game.physics.arcade.overlap(player, stars, collectStar);
+	game.physics.arcade.overlap(player, baddie, loseLife);
+
+
+	moveBaddie();
+
+	if (life<=0){
+		endGame()
+	}
+
 }
+
+	//define collect star function
+function collectStar (player, star){
+	score = score+1;
+	scoretext.setText(score);
+	star.kill();
+	star.reset(Math.floor(Math.random()*750),0);
+}
+
+function loseLife(player, baddie){
+	life = life-1;
+	lifetext.setText(life);
+	baddie.kill();
+	baddie.reset(10,20);
+}
+
+function moveBaddie(){
+	if(baddie.x>759){
+		baddie.animations.play('left');
+		baddie.body.velocity.x = -120;
+	}else if (baddie.x <405){
+		baddie.animations.play('right');
+		baddie.body.velocity.x = 120;
+	}
+}
+
+function endGame(){
+	player.kill();
+	scorelabel.text = "GAME OVER!! you scored" + score;
+	scoretext.visible = false;
+	lifelabel.visible = false;
+	lifetext.visible = false;
+}
+
+
+
+
+
+
+
+
