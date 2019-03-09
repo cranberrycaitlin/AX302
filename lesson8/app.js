@@ -51,7 +51,7 @@ function create(){
 	game.physics.arcade.enable(player);
 	player.body.bounce.y = 0.2;
 	player.body.gravity.y = 300;
-	player.body.collideWorldBounds = true;
+	player.body.collideWorldBounds = false;
 
 	baddie = game.add.sprite(700,60,'baddie');
 	baddie.animations.add('left',[0,1],10,true);
