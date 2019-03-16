@@ -9,6 +9,7 @@ function preload(){
   game.load.image('star', 'assets/star.png');
   game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
   game.load.spritesheet('baddie', 'assets/baddie.png', 32, 32);
+  game.load.image('health','assets/firstaid.png');
 }
 
 function create(){
@@ -74,6 +75,8 @@ function create(){
 
 	// add cursor control (with arrow)
 	cursors = game.input.keyboard.createCursorKeys();
+	healths = game.add.physicsGroup()
+	healths = enableBody = true;
 }
 
 
@@ -114,6 +117,9 @@ function update(){
 		endGame()
 	}
 
+	game.physics.arcade.collide(healths, platforms);
+	game.physics.arcade.overlap(player, healths, collectHealth);
+
 }
 
 	//define collect star function
@@ -122,6 +128,12 @@ function collectStar (player, star){
 	scoretext.setText(score);
 	star.kill();
 	star.reset(Math.floor(Math.random()*750),0);
+
+	if (score % 10 == 0){
+		health = healths.create(Math.floor(Math.random()*750),0,'health');
+		health.body.gravity.y = 200;
+		health.body.bounce.y = 0.2;
+	}
 }
 
 function loseLife(player, baddie){
@@ -147,6 +159,14 @@ function endGame(){
 	scoretext.visible = false;
 	lifelabel.visible = false;
 	lifetext.visible = false;
+
+}
+
+function collectHealth(player, health){
+	life += 1;
+	lifetext.setText(life);
+	health.kill;
+
 }
 
 
